@@ -1,9 +1,13 @@
-<h2>My Memories</h2>
-<ul class="memories">
-  <div>
-    <a *ngFor="let memory of memories" routerLink="/memory/{{memory.id}}">
-      <img class="memoryImage" style="width: 250px; height: 250px;" src="{{memory.imagePath}}" />
-    </a>
+<div class="memory-container">
+  <div class="middle-container">
+    <h2>My Memories</h2>
+    <ul class="memories">
+      <div>
+        <a *ngFor="let memory of memories" routerLink="/memory/{{memory.id}}">
+          <img class="memoryImage" style="width: 250px; height: 250px;" src="{{memory.imagePath}}" />
+        </a>
 
+      </div>
+    </ul>
   </div>
-</ul>
+</div>

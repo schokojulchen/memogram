@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MemoriesComponent } from './memories/memories.component';
 import { MemoryDetailComponent } from './memory-detail/memory-detail.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MemoriesComponent,
-    MemoryDetailComponent
+    MemoryDetailComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
