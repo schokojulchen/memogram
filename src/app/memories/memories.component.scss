@@ -25,3 +25,19 @@
   position: absolute;
 }
 
+.searchfield{
+  height: 35px;
+  width: 100%;
+  color: darkgray;
+  border-color: lightgray;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.searchfield:hover{
+  border-color: darkgray;
+  border-width: 2px;
+}
+
