@@ -1,7 +1,9 @@
+import { Media } from "./media"
+
 export interface Memory {
-  id: number;
+  id: string;
   text: string;
   creationDate: Date;
-  imagePath: string;
   tags: string[];
+  media: Media[];
 }

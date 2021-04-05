@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MemoriesComponent } from './memories/memories.component';
 import { MemoryDetailComponent } from './memory-detail/memory-detail.component';
 import { MenuComponent } from './menu/menu.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MenuComponent } from './menu/menu.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
