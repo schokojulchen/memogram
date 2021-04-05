@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Memory } from '../memory';
 import { MemoryService } from '../memory.service';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-memories',
