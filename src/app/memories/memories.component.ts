@@ -32,7 +32,7 @@ export class MemoriesComponent implements OnInit {
     });
   }
 
-  getSafeImageUrl(imageUrl: string): SafeResourceUrl {
+  getSafeImageUrl(imageUrl: string): string {
     return 'data:image/jpeg;base64,' + imageUrl;
   }
 
