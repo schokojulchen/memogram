@@ -26,7 +26,7 @@ export class MemoryDetailComponent implements OnInit {
   getMemory(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id != null) {
-      this.memoryService.getMemory(+id)
+      this.memoryService.getMemory(+'' + id)
         .subscribe(memory => this.memory = memory);
     } else {
       console.log('id is null');

@@ -5,7 +5,8 @@
     <ul class="memories">
       <div>
         <a *ngFor="let memory of memories" routerLink="/memory/{{memory.id}}">
-          <img class="memoryImage" style="width: 250px; height: 250px;" src="{{memory.imagePath}}" />
+          <img class="memoryImage" style="width: 250px; height: 250px;"
+            [src]="getSafeImageUrl(memory.media[0].binary.data)" />
         </a>
 
       </div>
