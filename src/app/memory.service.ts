@@ -21,9 +21,6 @@ export class MemoryService {
   }
 
   getMemory(id: string): Observable<Memory> {
-    // For now, assume that a memory with the specified `id` always exists.
-    // Error handling will be added in the next step of the tutorial.
-    const memory = MEMORIES.find(m => m.id === id) as Memory;
-    return of(memory);
+    return this.http.get<Memory>(this.getMemoriesUrl + '/' + id);
   }
 }
