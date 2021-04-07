@@ -1,0 +1,49 @@
+<div class="memory-input-container">
+
+  <div class="middle-container">
+
+      <section>
+        <h2>neue Memory</h2>
+        <div class="date-input-container">
+          <p class="dateArea">wann war es?
+            <span style="margin: 30px;"></span> <input class="newMemoryDate" type="date"></p>
+        </div>
+        <div class="text-input-container">
+          <p><textarea id="newMemory" class="newMemoryText" placeholder="meine neue Memory..."></textarea></p>
+        </div>
+        <div class="image-input-container">
+          <p><img class="newMemoryImage" id="newMemoryImage" src="assets/picPlaceholder.jpg" width="400px" height="400"/></p>
+
+        <div>
+          <form [formGroup] = "newMemoryForm" (ngSubmit)="onSubmit()">
+            <div>
+          <input type="file" name="image"(change)="onFileSelected($event)"/>
+          </div>
+
+          <!--<div class="loadImageArea">  <a routerLink="onUpload()">image laden</a> </div>-->
+
+
+        <div class="footer-container">
+          <footer>
+
+             <p class="buttonContainer"><button type "submit" class="pushable">
+              <span class="shadow"></span>
+              <span class="edge"></span>
+              <span class="front">
+                Speichern
+              </span>
+              </button></p>
+            <p class="buttonContainer"><button class="pushable" [routerLink]="['/memories']">
+              <span class="shadow"></span>
+              <span class="edge"></span>
+              <span class="front">
+              Abrechen
+            </span>
+          </button></p>
+
+          </footer>
+        </div>
+          </form>
+      </section>
+  </div>
+</div>
