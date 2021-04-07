@@ -34,8 +34,8 @@ export class MemoryDetailComponent implements OnInit {
 
   }
 
-  getSafeImageUrl(imageUrl: string): string {
-    return 'data:image/jpeg;base64,' + imageUrl;
+  getSafeImageUrl(id: string): string {
+    return 'https://memorygram-backend.herokuapp.com/media/' + id;
   }
 
 }

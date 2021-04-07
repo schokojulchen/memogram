@@ -23,4 +23,17 @@ export class MemoryService {
   getMemory(id: string): Observable<Memory> {
     return this.http.get<Memory>(this.getMemoriesUrl + '/' + id);
   }
+
+  createMemory(formData: FormData): void {
+
+    const formDataC = new FormData();
+    formDataC.append('text', 'Hey ein cooler Text');
+    formDataC.append('tags', 'eins,zwei,drei');
+    formDataC.append('creationDate', '2021-04-07T19:02:57.860Z');
+
+    this.http.post<any>('https://memorygram-backend.herokuapp.com/memories', formDataC).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
+  }
 }
