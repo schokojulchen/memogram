@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MemoryService } from '../memory.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private memoryService: MemoryService) { }
 
   ngOnInit(): void {
+  }
+
+  testCreateMemory(): void {
+    this.memoryService.createMemory(new FormData());
   }
 
 }

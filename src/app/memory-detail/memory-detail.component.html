@@ -1,7 +1,7 @@
 <div class="memory-detail-container">
   <div class="middle-detail-container" *ngIf="memory">
     <!--<img class="memoryImage" src="{{memory.imagePath}}" />-->
-    <img class="memoryImage" [src]="getSafeImageUrl(memory.media[0].binary.data)" />
+    <img class="memoryImage" [src]="getSafeImageUrl(memory.media[0].id)" />
     <div class="author-date-area">
       <div class="date">{{memory.creationDate | date:'d.MM.Y'}}</div>
     </div>
