@@ -17,10 +17,25 @@ export class MemoriesComponent implements OnInit {
   ngOnInit(): void {
     this.getMemories();
   }
-
+  /*this.memoryService.getMemories()
+    .subscribe(memories => this.memories = memories);*/
   getMemories(): void {
-    this.memoryService.getMemories()
-      .subscribe(memories => this.memories = memories);
+
+
+    this.memoryService.getMemories().subscribe(response => {
+      //do something with response
+      this.memories = response;
+    }, err => {
+      console.log(err);
+    }, () => {
+      console.log('completed');
+    });
   }
+
+  getSafeImageUrl(id: string): string {
+    return 'https://memorygram-backend.herokuapp.com/media/' + id;
+  }
+
+
 
 }

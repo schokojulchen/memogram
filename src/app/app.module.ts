@@ -12,6 +12,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MemoryInputComponent } from './memory-input/memory-input.component';
 import { from } from 'rxjs';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,8 @@ import { from } from 'rxjs';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
