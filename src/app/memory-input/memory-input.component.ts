@@ -33,7 +33,7 @@ export class MemoryInputComponent implements OnInit {
   onSubmit() {
     const formData = new FormData();
     formData.append('file', this.newMemoryForm.get('profile') ?.value);
-    this.http.post('localStorage',fd).subscribe(res => {console.log(res);
+    this.http.post('localStorage',formData).subscribe(res => {console.log(res);
 
     });
   }
