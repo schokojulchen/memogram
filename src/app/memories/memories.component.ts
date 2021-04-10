@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Memory } from '../memory';
 import { MemoryService } from '../memory.service';
 
+
 @Component({
   selector: 'app-memories',
   templateUrl: './memories.component.html',
