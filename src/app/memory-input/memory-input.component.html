@@ -1,47 +1,57 @@
 <div class="memory-input-container">
-
   <div class="middle-container">
 
-      <section>
-        <h2>neue Memory</h2>
+    <section>
+      <h2>neue Memory</h2>
+      <form  [formGroup]="newMemoryForm" (ngSubmit) ="onSubmit()">
         <div class="date-input-container">
           <p class="dateArea">wann war es?
-            <span style="margin: 30px;"></span> <input class="newMemoryDate" type="date"></p>
+            <span style="margin: 30px;"></span> <input class="newMemoryDate" type="date" formControlName ="newMemoryDate">
+            <label *ngIf="showHintLabelDate" [ngClass]="'error'" style="color: RED;" >Datum erforderlich.</label>
+          </p>
         </div>
         <div class="text-input-container">
-          <p><textarea id="newMemory" class="newMemoryText" placeholder="meine neue Memory..."></textarea></p>
+          <div>
+            <p>
+              <textarea type="text" class="newMemoryText" formControlName ="newMemoryText" placeholder="meine neue Memory..."></textarea>
+                <label *ngIf="showHintLabelText" [ngClass] = "'error'" style="color: RED" >Text erforderlich.</label>
+
+            </p>
+          </div>
         </div>
         <div class="image-input-container">
-          <p><img class="newMemoryImage" id="newMemoryImage" src="assets/picPlaceholder.jpg" width="400px" height="400"/></p>
-
-        <div>
-          <form [formGroup] = "newMemoryForm" (ngSubmit)="onSubmit()">
+          <p><img class="newMemoryImage" id="newMemoryImage" [src]="url" alt="" width="400px" height="400"/></p>
+          <div>
             <div>
-          <input type="file" name="image"(change)="onFileSelected($event)"/>
+              <input style="display:none" type="file" formControlName ="newMemoryImage" #imageFileInput (change)="onImageFileSelected($event)"/>
+              <button type="button" (click)="imageFileInput.click()">image laden</button>
+            </div>
           </div>
-        <div class="footer-container">
-          <footer>
+        </div>
 
-             <p class="buttonContainer"><button class="pushable">
+      <div class="footer-container">
+        <footer>
+          <p class="buttonContainer">
+            <button type= "submit" class="pushable">
               <span class="shadow"></span>
               <span class="edge"></span>
               <span class="front">
-                Speichern
+              Speichern
               </span>
-              </button></p>
-            <p class="buttonContainer"><button class="pushable" [routerLink]="['/memories']">
+            </button>
+          </p>
+          <p class="buttonContainer">
+            <button class="pushable" [routerLink]="['/memories']">
               <span class="shadow"></span>
               <span class="edge"></span>
               <span class="front">
-              Abrechen
-            </span>
-          </button></p>
-
-          </footer>
-        </div>
-          </form>
-         </div>
-        </div>
-      </section>
+              Abbrechen
+              </span>
+            </button>
+          </p>
+        </footer>
+      </div>
+    </form>
+    </section>
   </div>
 </div>

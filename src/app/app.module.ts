@@ -13,6 +13,7 @@ import { MemoryInputComponent } from './memory-input/memory-input.component';
 import { from } from 'rxjs';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,6 @@ import { from } from 'rxjs';
     AppRoutingModule,
     HttpClientModule,
     AppRoutingModule,
-    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
