@@ -38,17 +38,25 @@ export class MemoryInputComponent  implements OnInit {
     private http: HttpClient,
     private memoryService: MemoryService,
 
-    /*private datePipe: DatePipe,*/
-  ){ this.showHintLabelDate = false;
+   ){ this.showHintLabelDate = false;
      this.showHintLabelText = false;
   }
 
   get newMemoryText(): any{
     return this.newMemoryForm.get('newMemoryText');
   }
+
   get newMemoryDate(): any{
     return this.newMemoryForm.get('newMemoryDate');
   }
+
+  newMemoryDateAsString(inputtedDate: Date){
+
+    var dateString = new Date(inputtedDate);
+    return dateString.toISOString();
+  }
+
+
 
 tagCreator(newText: string) {
 
@@ -68,12 +76,12 @@ while (position != -1) {
     searchIndex = searchIndex+1;
 
   }
+  this.newMemoryTags = this.newMemoryTags.replace(/[+\/\\(){}\[\]<>!§$%&=?#*€¿&_\".,:;]/g,'');
   this.newMemoryTags = this.newMemoryTags + ",";
   position = newText.indexOf('#', position + 1);
 }
 return
 }
-
 
 
   onImageFileSelected(event: any) {
@@ -102,10 +110,8 @@ return
 
     formDataNewMemory.append('text', this.newMemoryForm.get('newMemoryText')?.value);
     formDataNewMemory.append('tags', this.newMemoryTags);
-
-    /*formDataNewMemory.append('creationDate', this.newMemoryForm.get('newMemoryDate')?.value);*/
-    formDataNewMemory.append('creationDate', '2021-04-07T19:02:57.860Z');
-    formDataNewMemory.append('media', this.selectedFile);
+    formDataNewMemory.append('creationDate', this.newMemoryDateAsString( this.newMemoryForm.get('newMemoryDate')?.value));
+    formDataNewMemory.append('file', this.selectedFile);
 
 
     this.memoryService.createMemory(formDataNewMemory);

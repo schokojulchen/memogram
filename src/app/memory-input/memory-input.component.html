@@ -1,8 +1,8 @@
 <div class="memory-input-container">
   <div class="middle-container">
 
-    <section>
-      <h2>neue Memory</h2>
+    <section class= "flex-box">
+      <h2>neue memory</h2>
       <form  [formGroup]="newMemoryForm" (ngSubmit) ="onSubmit()">
         <div class="date-input-container">
           <p class="dateArea">wann war es?
@@ -19,38 +19,28 @@
             </p>
           </div>
         </div>
+
         <div class="image-input-container">
+
           <p><img class="newMemoryImage" id="newMemoryImage" [src]="url" alt="" width="400px" height="400"/></p>
+
           <div>
-            <div>
-              <input style="display:none" type="file" formControlName ="newMemoryImage" #imageFileInput (change)="onImageFileSelected($event)"/>
-              <button type="button" (click)="imageFileInput.click()">image laden</button>
-            </div>
+          <input style="display:none" type="file" formControlName ="newMemoryImage" #imageFileInput (change)="onImageFileSelected($event)"/>
+          <button  class=" image-loading-button" type="button" (click)="imageFileInput.click()" Style="z-index:1" Style=" margin-top: -100px" ><u>image laden</u></button>
           </div>
         </div>
+        <p> </p>
 
-      <div class="footer-container">
-        <footer>
-          <p class="buttonContainer">
-            <button type= "submit" class="pushable">
-              <span class="shadow"></span>
-              <span class="edge"></span>
-              <span class="front">
-              Speichern
-              </span>
-            </button>
-          </p>
-          <p class="buttonContainer">
-            <button class="pushable" [routerLink]="['/memories']">
-              <span class="shadow"></span>
-              <span class="edge"></span>
-              <span class="front">
-              Abbrechen
-              </span>
-            </button>
-          </p>
+        <footer class="footer-container">
+          <div class="buttonBar">
+            <div class="buttonContainer">
+              <button class= "footerButton" type= "submit"><div>speichern</div></button>
+            </div>
+            <div class="buttoncontainer">
+              <button class= "footerButton"  [routerLink]="['/memories']"><div>abbrechen</div></button>
+            </div>
+          </div>
         </footer>
-      </div>
     </form>
     </section>
   </div>
