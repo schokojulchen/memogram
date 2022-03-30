@@ -1,0 +1,47 @@
+<div class="memory-input-container">
+  <div class="middle-container">
+
+    <section class= "flex-box">
+      <h2>neue memory</h2>
+      <form  [formGroup]="newMemoryForm" (ngSubmit) ="onSubmit()">
+        <div class="date-input-container">
+          <p class="dateArea">wann war es?
+            <span style="margin: 30px;"></span> <input class="newMemoryDate" type="date" formControlName ="newMemoryDate">
+            <label *ngIf="showHintLabelDate" [ngClass]="'error'" style="color: RED;" >Datum erforderlich.</label>
+          </p>
+        </div>
+        <div class="text-input-container">
+          <div>
+            <p>
+              <textarea type="text" class="newMemoryText" formControlName ="newMemoryText" placeholder="meine neue Memory..."></textarea>
+                <label *ngIf="showHintLabelText" [ngClass] = "'error'" style="color: RED" >Text erforderlich.</label>
+
+            </p>
+          </div>
+        </div>
+
+        <div class="image-input-container">
+
+          <p><img class="newMemoryImage" id="newMemoryImage" [src]="url" alt="" width="400px" height="400"/></p>
+
+          <div>
+          <input style="display:none" type="file" formControlName ="newMemoryImage" #imageFileInput (change)="onImageFileSelected($event)"/>
+          <button  class=" image-loading-button" type="button" (click)="imageFileInput.click()" Style="z-index:1" Style=" margin-top: -100px" ><u>image laden</u></button>
+          </div>
+        </div>
+        <p> </p>
+
+        <footer class="footer-container">
+          <div class="buttonBar">
+            <div class="buttonContainer">
+              <button class= "footerButton" type= "submit"><div>speichern</div></button>
+            </div>
+            <div class="buttoncontainer">
+              <button class= "footerButton"  [routerLink]="['/memories']"><div>abbrechen</div></button>
+            </div>
+          </div>
+        </footer>
+    </form>
+    </section>
+  </div>
+</div>
