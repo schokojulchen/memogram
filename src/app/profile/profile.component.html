@@ -1,6 +1,11 @@
-<ul *ngIf="auth.user$ | async as user">
-  <li>{{ user.name }}</li>
-  <li>{{ user.email }}</li>
-</ul>
+<div *ngIf="auth.user$ | async as user">
+  <img [src]="user.picture" alt="User's profile picture" class="rounded-circle img-fluid profile-picture" />
+  <p>{{ user.name }}</p>
+  <p>{{ user.email }}</p>
+  <div class="row" *ngIf="profileJson">
+    <pre class="col-12 text-light bg-dark p-4">{{ profileJson }}</pre>
+  </div>
+</div>
+
 
 <app-auth-button></app-auth-button>
