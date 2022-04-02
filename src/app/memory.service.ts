@@ -11,7 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class MemoryService {
 
-  private getMemoriesUrl = 'http://memorygram-backend.herokuapp.com/memories';  // URL to web api
+  private getMemoriesUrl = 'https://memorygram-backend.herokuapp.com/memories';  // URL to web api
 
   constructor(
     private http: HttpClient) { }
