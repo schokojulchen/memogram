@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Memory } from '../memory';
 import { MemoryService } from '../memory.service';
+import { MediaService } from '../media.service';
+
 
 @Component({
   selector: 'app-memories',
@@ -12,18 +14,17 @@ export class MemoriesComponent implements OnInit {
 
   memories!: Memory[];
 
-  constructor(private memoryService: MemoryService) { }
+  constructor(
+    private memoryService: MemoryService,
+    private mediaService: MediaService) { }
 
   ngOnInit(): void {
     this.getMemories();
   }
-  /*this.memoryService.getMemories()
-    .subscribe(memories => this.memories = memories);*/
+
   getMemories(): void {
-
-
     this.memoryService.getMemories().subscribe(response => {
-      //do something with response
+      // do something with response
       this.memories = response;
     }, err => {
       console.log(err);
@@ -32,11 +33,12 @@ export class MemoriesComponent implements OnInit {
     });
   }
 
-  getSafeImageUrl(memory: Memory) {
+  getSafeImageUrl(memory: Memory): string {
+
     if (memory.media != null && memory.media.length > 0) {
       return 'https://memorygram-backend.herokuapp.com/media/' + memory.media[0].id;
     }
-    return "";
+    return '';
 
   }
 
