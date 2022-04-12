@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthButtonComponent } from './profile/auth-button.component';
 import { MemoryInputComponent } from './memory-input/memory-input.component';
 import { from } from 'rxjs';
+import { ProtectedImagePipe } from './protected-image.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { from } from 'rxjs';
     ProfileComponent,
     AuthButtonComponent,
     MemoryInputComponent,
+    ProtectedImagePipe,
   ],
   imports: [
     BrowserModule,
