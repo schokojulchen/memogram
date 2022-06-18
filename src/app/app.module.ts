@@ -15,6 +15,7 @@ import { AuthButtonComponent } from './profile/auth-button.component';
 import { MemoryInputComponent } from './memory-input/memory-input.component';
 import { from } from 'rxjs';
 import { ProtectedImagePipe } from './protected-image.pipe';
+import { isDevMode } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ProtectedImagePipe } from './protected-image.pipe';
     AuthModule.forRoot({
       domain: 'masalis.eu.auth0.com',
       clientId: 'MLQDQ16qyZR0EXDitpLKl6fgOQC3hqnI',
+      redirectUri: isDevMode() ? 'http://localhost:4200' : 'https://schokojulchen.github.io/memogram/',
       audience: 'https://memorygram-backend.herokuapp.com/memories',
       // The AuthHttpInterceptor configuration
       httpInterceptor: {
