@@ -39,7 +39,7 @@ import { isDevMode } from '@angular/core';
     AuthModule.forRoot({
       domain: 'masalis.eu.auth0.com',
       clientId: 'MLQDQ16qyZR0EXDitpLKl6fgOQC3hqnI',
-      redirectUri: isDevMode() ? 'http://localhost:4200' : 'https://schokojulchen.github.io/memogram/',
+      redirectUri: 'https://schokojulchen.github.io/memogram/',
       audience: 'https://memorygram-backend.herokuapp.com/memories',
       // The AuthHttpInterceptor configuration
       httpInterceptor: {
